@@ -6,7 +6,7 @@ class TodoList extends Component {
     super(props)
     this.state = {
       // input框中的值
-      inputValue: '',
+      inputValue: 'hello',
       // 数组中的值
       list: []
     }
@@ -14,7 +14,9 @@ class TodoList extends Component {
   render() {
     return(
       <Fragment> 
-        <input/>
+        <input
+          onChange={this.handleInputChange.bind(this)}
+          value={this.state.inputValue}/>
         <button>提交</button>
         <ul>
           <li>音乐</li>
@@ -22,6 +24,11 @@ class TodoList extends Component {
         </ul>
       </Fragment>
     )
+  }
+  handleInputChange(e) {
+    this.setState({
+      inputValue: e.target.value
+    })
   }
 }
 

@@ -1,5 +1,6 @@
 
 import React, { Component, Fragment } from 'react'
+import './style.css'
 
 class TodoList extends Component {
   constructor(props) {
@@ -14,7 +15,10 @@ class TodoList extends Component {
   render() {
     return(
       <Fragment> 
+        <label htmlFor="input">输入框</label>
         <input
+          id="input"
+          className="input"
           // 原生DOMchange事件绑定为onchange
           // 绑定chang事件, 需要绑定this，否则this指向不是该组件
           onChange={this.handleInputChange.bind(this)}
@@ -27,7 +31,10 @@ class TodoList extends Component {
               return <li 
                 key={ k }
                 onClick={this.handleDelete.bind(this, k)}
-              >{ v }</li>
+                // 外层的{}是jsx的语法 内层的是个对象的{}
+                dangerouslySetInnerHTML={{__html: v}}
+                // 渲染html片段
+              ></li>
             })
           }
         </ul>

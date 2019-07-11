@@ -37,7 +37,12 @@ class TodoList extends Component {
   }
   handleInputChange(e) {
     const value = e.target.value
-    // this.setState这是个异步过程
+    // this.setState这是个异步过程 但他本身提供了一个回调函数
+    // this.setState(() => ({
+    //   inputValue: value
+    // }), () => {
+    //   console.log('异步了')
+    // })
     this.setState(() => ({
       inputValue: value
     }))

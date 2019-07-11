@@ -19,6 +19,9 @@ class TodoItem extends React.Component{
     // 调用父组件的方法 并把对应的索引传给父组件
     this.props.deleteItme(this.props.index)
   }
+  static getDerivedStateFromProps(nextProps, prevState) {
+    console.log(90)
+  }
 }
 
 // 对父组件的传值 进行强校验

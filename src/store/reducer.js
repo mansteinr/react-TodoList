@@ -3,12 +3,13 @@
 // action是组件改变store里面的数据时 组件和store之间的通信
 
 const defaultStore = {
-  inputValue: 'rwerw',
-  list: ['re', 'ere', '90']
+  inputValue: '',
+  list: []
 }
 
 // reducer可以接收state，但是绝不能修改state
 export default (state = defaultStore, action) => {
+  console.log(action)
   if(action.type === 'change_input_value') {
     // 将之前的state深度拷贝一份
     const newState = JSON.parse(JSON.stringify(state))
@@ -22,6 +23,12 @@ export default (state = defaultStore, action) => {
     const newState = JSON.parse(JSON.stringify(state))
     newState.list.push(newState.inputValue)
     newState.inputValue = ''
+    return newState
+  }
+  if(action.type === 'delelte_todo_item') {
+    console.log(23)
+    const newState = JSON.parse(JSON.stringify(state))
+    newState.list.splice(action.value, 1)
     return newState
   }
   return state

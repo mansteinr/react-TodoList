@@ -14,6 +14,7 @@ class AntdTodo extends Component{
     // 订阅 只要store里面数据改变 就会触发handleStoreChange函数
     this.handleStoreChange = this.handleStoreChange.bind(this)
     this.handleBtnClick = this.handleBtnClick.bind(this)
+    // this.handleItem = this.handleItem.bind(this)
     store.subscribe(this.handleStoreChange)
   }
   render() {
@@ -32,7 +33,7 @@ class AntdTodo extends Component{
           size="small"
           bordered
           dataSource={this.state.list}
-          renderItem={item => <List.Item>{item}</List.Item>}
+          renderItem={(item, index) => <List.Item onClick={this.handleItem.bind(this, index)}>{item}</List.Item>}
         />
       </div>
     )
@@ -56,6 +57,14 @@ class AntdTodo extends Component{
   handleBtnClick() {
     const action = {
       type: 'add_todo_item'
+    }
+    store.dispatch(action)
+  }
+
+  handleItem(index) {
+    const action = {
+      type: 'delelte_todo_item',
+      value: index
     }
     store.dispatch(action)
   }

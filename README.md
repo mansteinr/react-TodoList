@@ -9,3 +9,7 @@ In the project directory, you can run:
 ### 利用React做的todolist Demo
 
 ### 这是一个react入门demo
+
+npm install
+
+npm start

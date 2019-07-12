@@ -1,9 +1,8 @@
 
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import TodoItem from './TodoItem'
 import CSStransition from './CSSTransition'
 import TransitionGroupTest from './transitionGroup'
-import './style.css'
 
 class TodoList extends Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class TodoList extends Component {
   }
   render() {
     return(
-      <Fragment>
+      <div>
         <label htmlFor="input">输入框</label>
         <input
           id="input"
@@ -36,7 +35,7 @@ class TodoList extends Component {
         </ul>
         <CSStransition></CSStransition>
         <TransitionGroupTest></TransitionGroupTest>
-      </Fragment>
+      </div>
     )
   }
   handleInputChange(e) {

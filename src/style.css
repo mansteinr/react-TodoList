@@ -1,3 +1,7 @@
+html, body{
+  height: 100%;
+  margin: 0;
+}
 .input {
   border: 1px solid red;
 }
@@ -7,6 +11,23 @@ div{
 .fade{
   height: 50px;
   line-height: 50px;
+}
+#root {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  margin: 10px;
+}
+#root>div:first-child{
+  flex: 1;
+  border: 1px solid #F56C6C;
+  padding: 30px;
+}
+#root>div:nth-child(2){
+  flex: 2;
+  margin-top: 10px;
+  border: 1px solid #C0C4CC;
+  padding: 30px;
 }
 .show{
   animation: show-item 2s ease-in-out forwards;

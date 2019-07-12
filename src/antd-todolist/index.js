@@ -3,7 +3,7 @@ import 'antd/dist/antd.css'
 
 import { Input, Button, List } from 'antd'
 import store from '../store/index'
-import * as types from '../store/actionTypes'
+import * as actions from '../store/actionCreators'
 
 
 class AntdTodo extends Component{
@@ -41,10 +41,11 @@ class AntdTodo extends Component{
   }
   handleInputChange(e) {
     // 构建action
-    const action = {
-      type: types.CHANGE_INPUT_VALUE,
-      value: e.target.value
-    }
+    // const action = {
+    //   type: types.CHANGE_INPUT_VALUE,
+    //   value: e.target.value
+    // }
+    const action = actions.getInputChangeAction(e.target.value)
     // 将action传给store 在reducer.js中 会自动接收action和state
     store.dispatch(action)
   }
@@ -56,17 +57,19 @@ class AntdTodo extends Component{
   }
   // 提交的时候 让input框的内容 添加到list数组中
   handleBtnClick() {
-    const action = {
-      type: types.ADD_TODO_ITEM
-    }
+    // const action = {
+    //   type: types.ADD_TODO_ITEM
+    // }
+    const action = actions.getHanleBtnClickAction()
     store.dispatch(action)
   }
 
   handleItem(index) {
-    const action = {
-      type: types.DELETE_TODO_ITEM,
-      value: index
-    }
+    // const action = {
+    //   type: types.DELETE_TODO_ITEM,
+    //   value: index
+    // }
+    const action = actions.getHandleItemAction(index)
     store.dispatch(action)
   }
 }

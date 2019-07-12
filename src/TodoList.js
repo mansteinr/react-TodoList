@@ -1,6 +1,8 @@
 
 import React, { Component, Fragment } from 'react'
 import TodoItem from './TodoItem'
+import CSStransition from './CSSTransition'
+import TransitionGroupTest from './transitionGroup'
 import './style.css'
 
 class TodoList extends Component {
@@ -32,6 +34,8 @@ class TodoList extends Component {
         <ul>
           { this.getTodoItem() }
         </ul>
+        <CSStransition></CSStransition>
+        <TransitionGroupTest></TransitionGroupTest>
       </Fragment>
     )
   }

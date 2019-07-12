@@ -1,3 +1,70 @@
 .input {
   border: 1px solid red;
 }
+div{
+  font-size: 20px;
+}
+.fade{
+  height: 50px;
+  line-height: 50px;
+}
+.show{
+  animation: show-item 2s ease-in-out forwards;
+}
+.hide{
+  /* forwards 可以让动画保留最后一帧*/
+  animation: hide-item 2s ease-in-out forwards;
+}
+
+@keyframes hide-item {
+  0% {
+    opacity: 1;
+    color: red;
+  }
+  50% {
+    opacity: 0.5;
+    color: green;
+  }
+  100% {
+    opacity: 0.1;
+    color: blue;
+  }
+}
+@keyframes show-item {
+  0% {
+    opacity: 0.1;
+    color: blue;
+  }
+  50% {
+    opacity: 0.5;
+    color: green;
+  }
+  100% {
+    opacity: 1;
+    color: red;
+  }
+}
+.fade-active{
+  opacity: 0;
+}
+
+.enter{
+  opacity: 0;
+}
+.enter-active, .appear-active{
+  opacity: 1;
+  transition: opacity 1s ease
+}
+.enter-done{
+  opacity: 1;
+}
+.exit{
+  opacity: 1;
+}
+.exit-active{
+  opacity: 0;
+  transition: opacity 1s ease
+}
+.exit-done{
+  opacity: 0;
+}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Input, Button, List } from 'antd'
 
 // props父组件传递过来的
@@ -19,7 +19,7 @@ const TodoListUI = (props) => {
       size="small"
       bordered
       dataSource={props.list}
-      renderItem={(item, index) => <List.Item onClick={(index) => {props.handleItem(index)}}>{item}</List.Item>}
+      renderItem={(item, index) => <List.Item onClick={() => {props.handleItem(index)}}>{ item.userName ? item.userName : item }</List.Item>}
     />
   </div>
   )

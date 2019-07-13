@@ -27,7 +27,12 @@ export default (state = defaultStore, action) => {
   }
   if(action.type === types.DELETE_TODO_ITEM) {
     const newState = JSON.parse(JSON.stringify(state))
-    newState.list.splice(action.value, 1)
+    newState.list.splice(action.index, 1)
+    return newState
+  }
+  if(action.type === types.INIT_LIST_ACTION) {
+    const newState = JSON.parse(JSON.stringify(state))
+    newState.list = action.data.slice(0, 10)
     return newState
   }
   return state

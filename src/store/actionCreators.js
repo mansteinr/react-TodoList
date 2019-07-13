@@ -3,6 +3,8 @@
  */
 
 import * as types from './actionTypes'
+import axios from 'axios'
+import store from '.';
 
 export const getInputChangeAction = (value) => ({
   type: types.CHANGE_INPUT_VALUE,
@@ -17,3 +19,21 @@ export const getHandleItemAction = (index) => ({
   type: types.DELETE_TODO_ITEM,
   index
 })
+
+export const initListAction = (data) => ({
+  type: types.INIT_LIST_ACTION,
+  data
+})
+
+// 使用redux之后 可以return一个函数，在函数里面做异步操作，如请求
+// 之前只能return一个对象
+// 这个函数可以接收到参数 dispatch 这样就不用利用store派发action
+export const getTodoList = () => {
+  return (dispatch) => {
+    axios.get('https://www.easy-mock.com/mock/5b62c926061b7876217a9de3/api/table/high/list').then(res => {
+      const data = res.data.result.list
+      const action = initListAction(data)
+      dispatch(action)
+    })
+  }
+}

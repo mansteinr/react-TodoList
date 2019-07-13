@@ -10,10 +10,10 @@ class AntdTodo extends Component{
     // 获取store里面的数据
     this.state = store.getState()
     this.handleInputChange = this.handleInputChange.bind(this)
-    // 订阅 只要store里面数据改变 就会触发handleStoreChange函数
     this.handleStoreChange = this.handleStoreChange.bind(this)
     this.handleBtnClick = this.handleBtnClick.bind(this)
     this.handleItem = this.handleItem.bind(this)
+    // 订阅 只要store里面数据改变 就会触发handleStoreChange函数
     store.subscribe(this.handleStoreChange)
   }
   render() {
@@ -44,6 +44,15 @@ class AntdTodo extends Component{
       // </div>
     )
   }
+
+  componentDidMount() {
+    // 异步请求
+    const action = actions.getTodoList()
+    // 直接将方法 发给store, 然后action里面的函数会自动执行
+    // 这样就实现了异步发送求的目的 请求拿到数据之后 在函数体内再次派出action
+    store.dispatch(action) 
+  }
+
   handleInputChange(e) {
     // 构建action
     // const action = {

@@ -19,3 +19,9 @@ class App extends React.Component{
 }
 
 export default App
+
+/**
+ * ui组件：做渲染处理
+ * 
+ * 容器组件：做逻辑处理
+ */

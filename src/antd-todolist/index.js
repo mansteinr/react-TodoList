@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import 'antd/dist/antd.css'
-
-import { Input, Button, List } from 'antd'
 import store from '../store/index'
 import * as actions from '../store/actionCreators'
-
+import TodoListUI from './TodoListUI'
 
 class AntdTodo extends Component{
   constructor(props) {
@@ -15,28 +13,35 @@ class AntdTodo extends Component{
     // 订阅 只要store里面数据改变 就会触发handleStoreChange函数
     this.handleStoreChange = this.handleStoreChange.bind(this)
     this.handleBtnClick = this.handleBtnClick.bind(this)
-    // this.handleItem = this.handleItem.bind(this)
+    this.handleItem = this.handleItem.bind(this)
     store.subscribe(this.handleStoreChange)
   }
   render() {
     return(
-      <div>
-        <div>
-          <Input
-            onChange={this.handleInputChange}
-            value={this.state.inputValue} 
-            placeholder="Basic usage" 
-            style={{width: '300px',marginRight: '10px'}}/>
-          <Button type="primary" onClick={this.handleBtnClick}>submit</Button>
-        </div>
-        <List
-          style={{width:'300px',marginTop: '10px'}}
-          size="small"
-          bordered
-          dataSource={this.state.list}
-          renderItem={(item, index) => <List.Item onClick={this.handleItem.bind(this, index)}>{item}</List.Item>}
-        />
-      </div>
+      <TodoListUI
+        list={this.state.list}
+        handleItem={this.handleItem}
+        inputValue={this.state.inputValue}
+        handleBtnClick={this.handleBtnClick}
+        handleInputChange={this.handleInputChange}
+      />
+      // <div>
+      //   <div>
+      //     <Input
+      //       onChange={this.handleInputChange}
+      //       value={this.state.inputValue} 
+      //       placeholder="Basic usage" 
+      //       style={{width: '300px',marginRight: '10px'}}/>
+      //     <Button type="primary" onClick={this.handleBtnClick}>submit</Button>
+      //   </div>
+      //   <List
+      //     style={{width:'300px',marginTop: '10px'}}
+      //     size="small"
+      //     bordered
+      //     dataSource={this.state.list}
+      //     renderItem={(item, index) => <List.Item onClick={this.handleItem.bind(this, index)}>{item}</List.Item>}
+      //   />
+      // </div>
     )
   }
   handleInputChange(e) {

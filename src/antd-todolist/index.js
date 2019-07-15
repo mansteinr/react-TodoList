@@ -3,6 +3,7 @@ import 'antd/dist/antd.css'
 import store from '../store/index'
 import * as actions from '../store/actionCreators'
 import TodoListUI from './TodoListUI'
+// import axios from 'axios'
 
 class AntdTodo extends Component{
   constructor(props) {
@@ -44,13 +45,31 @@ class AntdTodo extends Component{
       // </div>
     )
   }
+  /**
+   *  使用thunk插件的写法
+   */
 
+  // componentDidMount() {
+  //   // 异步请求
+  //   const action = actions.getTodoList()
+  //   // 直接将方法 发给store, 然后action里面的函数会自动执行 也可以理解先执行函数 拿到数据
+  //   // 这样就实现了异步发送求的目的 请求拿到数据之后 在函数体内再次派出action
+  //   store.dispatch(action) 
+  // }
+
+
+  /**
+   * 使用redux-saga的写法
+   */
   componentDidMount() {
-    // 异步请求
-    const action = actions.getTodoList()
-    // 直接将方法 发给store, 然后action里面的函数会自动执行
-    // 这样就实现了异步发送求的目的 请求拿到数据之后 在函数体内再次派出action
-    store.dispatch(action) 
+    // 除了reducre可以接收到 saga文件也可以接收到
+    const action = actions.getInitList()
+    store.dispatch(action)
+    // axios.get('https://www.easy-mock.com/mock/5b62c926061b7876217a9de3/api/table/high/list').then(res => {
+    //   const data = res.data.result.list
+    //   const action = actions.initListAction(data)
+    //   store.dispatch(action)
+    // })
   }
 
   handleInputChange(e) {

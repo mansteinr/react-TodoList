@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import TodoItem from './TodoItem'
 import CSStransition from './CSSTransition'
+// 引入子组件
 import TransitionGroupTest from './transitionGroup'
 
 class TodoList extends Component {

@@ -35,7 +35,6 @@ class TransitionGroupTest extends React.Component{
     )
   }
   handleTransitionToggole() {
-    console.log(this.state.show)
     this.setState((prevState) => ({
       list: [...prevState.list, 'item']
     }))

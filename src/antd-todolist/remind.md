@@ -1,0 +1,1 @@
+主要使用redux的插件redux-saga和redux-thunk

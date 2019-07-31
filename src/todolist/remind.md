@@ -1,0 +1,2 @@
+主要是父子组件传值和使用react-transition-group第三方插件
+使用redux 但是没有用插件

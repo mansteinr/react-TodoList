@@ -1,6 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import reducer from './reducer'
 
+// 不适用插件时
+// const store = createStore(reducer)
+
+
 
 // thunk为了方便管理 将项目中所有的异步请求统一管理 所有借助该redux中间件
 // 也可以用redux-saga进星异步函数的统一管理

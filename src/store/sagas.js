@@ -23,6 +23,7 @@ function* getInitList() {
     // 出错时
     console.log('有问题')
   }
+  
   // axios.get('https://www.easy-mock.com/mock/5b62c926061b7876217a9de3/api/table/high/list').then(res => {
   //   const data = res.data.result.list
   //   const action = actions.initListAction(data)
